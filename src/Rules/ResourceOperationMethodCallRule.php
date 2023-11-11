@@ -10,43 +10,47 @@ use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
 use Sfp\ResourceOperations\ResourceOperations;
 
+use function in_array;
+use function sprintf;
+use function strtolower;
+
 /**
  * @implements Rule<Node\Expr\MethodCall>
  */
 final class ResourceOperationMethodCallRule implements Rule
 {
-	public function getNodeType(): string
-	{
-		return Node\Expr\MethodCall::class;
-	}
+    public function getNodeType(): string
+    {
+        return Node\Expr\MethodCall::class;
+    }
 
-	public function processNode(Node $node, Scope $scope): array
-	{
-		if (! $node->name instanceof Node\Identifier) {
-			// @codeCoverageIgnoreStart
-			return []; // @codeCoverageIgnoreEnd
-		}
+    public function processNode(Node $node, Scope $scope): array
+    {
+        if (! $node->name instanceof Node\Identifier) {
+            // @codeCoverageIgnoreStart
+            return []; // @codeCoverageIgnoreEnd
+        }
 
-		if ($scope->getFunctionName() !== '__construct') {
-			return [];
-		}
+        if ($scope->getFunctionName() !== '__construct') {
+            return [];
+        }
 
-		$calledOnType = $scope->getType($node->var);
+        $calledOnType = $scope->getType($node->var);
 
-		$methodNames = [];
-		foreach ($calledOnType->getObjectClassNames() as $objectClassName) {
-			$methodNames [] = $objectClassName . '::' .strtolower($node->name->name);
-		}
+        $methodNames = [];
+        foreach ($calledOnType->getObjectClassNames() as $objectClassName) {
+            $methodNames [] = $objectClassName . '::' . strtolower($node->name->name);
+        }
 
-		$errors = [];
-		foreach ($methodNames as $methodName) {
-			if (in_array($methodName, ResourceOperations::getMethods(), true)) {
-				$errors[] = RuleErrorBuilder::message(
-					sprintf("Don't resource operation inside constructor. Method %s() is called.", $methodName)
-				)->identifier('sfp-dont-operation.resourceOperationMethodCall')->build();
-			}
-		}
+        $errors = [];
+        foreach ($methodNames as $methodName) {
+            if (in_array($methodName, ResourceOperations::getMethods(), true)) {
+                $errors[] = RuleErrorBuilder::message(
+                    sprintf("Don't resource operation inside constructor. Method %s() is called.", $methodName)
+                )->identifier('sfp-dont-operation.resourceOperationMethodCall')->build();
+            }
+        }
 
-		return $errors;
-	}
+        return $errors;
+    }
 }
