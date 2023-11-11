@@ -2,7 +2,11 @@
 
 declare(strict_types=1);
 
-class Test
+namespace SfpTest\PHPStan\DontOperationInsideConstructor\Rules\data;
+
+use SplFileInfo;
+
+class ResourceOperationMethodCall
 {
     public function __construct()
     {

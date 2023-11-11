@@ -1,6 +1,6 @@
 {
     "name": "struggle-for-php/sfp-phpstan-dont-operation-inside-constructor",
-    "description": "Extra strict and opinionated resource operation rules.neon for PHPStan",
+    "description": "Extra strict and opinionated resource operation rules for PHPStan",
     "type": "phpstan-extension",
     "keywords": ["phpstan", "static analysis", "constructor", "operation", "resource"],
     "license": [
