@@ -17,6 +17,7 @@
     "PHPStan\\Type\\Constant\\ConstantStringType",
     "PHPStan\\Type\\ObjectType",
     "PHPStan\\Type\\Type",
-    "PhpParser\\Node\\Expr\\FuncCall"
+    "PhpParser\\Node\\Expr\\FuncCall",
+    "PhpParser\\Node\\Name"
   ]
 }
