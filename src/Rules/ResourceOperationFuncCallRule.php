@@ -8,9 +8,7 @@ use PhpParser\Node;
 use PhpParser\Node\Name;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
-use PHPStan\Rules\RuleError;
 use PHPStan\Rules\RuleErrorBuilder;
-use PHPStan\ShouldNotHappenException;
 use Sfp\ResourceOperations\ResourceOperations;
 
 use function in_array;
@@ -26,11 +24,6 @@ final class ResourceOperationFuncCallRule implements Rule
         return Node\Expr\FuncCall::class;
     }
 
-    /**
-     * @param Node\Expr\FuncCall $node
-     * @return array|RuleError[]|string[]
-     * @throws ShouldNotHappenException
-     */
     public function processNode(Node $node, Scope $scope): array
     {
         if ($scope->getFunctionName() !== '__construct') {
