@@ -1,0 +1,11 @@
+#./vendor/bin/phpstan analyse -c ./example/phpstan.neon
+
+parameters:
+	level: 5
+	bootstrapFiles:
+		- %currentWorkingDirectory%/vendor/autoload.php
+	paths:
+		- %currentWorkingDirectory%/example
+
+includes:
+	- %currentWorkingDirectory%/rules.neon
