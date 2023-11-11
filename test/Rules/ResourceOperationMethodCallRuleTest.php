@@ -10,6 +10,7 @@ use Sfp\PHPStan\DontOperationInsideConstructor\Rules\ResourceOperationMethodCall
 
 /**
  * @extends RuleTestCase<ResourceOperationMethodCallRule>
+ * @covers \Sfp\PHPStan\DontOperationInsideConstructor\Rules\ResourceOperationMethodCallRule
  */
 class ResourceOperationMethodCallRuleTest extends RuleTestCase
 {
