@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" failures="2" name="phpstan" tests="2" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/junit-team/junit5/r5.5.1/platform-tests/src/test/resources/jenkins-junit.xsd">
+  <testcase name="example/example.php:11">
+    <failure type="ERROR" message="Don't resource operation inside constructor. Method SplFileInfo::openfile() is called."/>
+  </testcase>
+  <testcase name="example/example.php:13">
+    <failure type="ERROR" message="Don't resource operation inside constructor. function fopen() is called."/>
+  </testcase>
+</testsuite>

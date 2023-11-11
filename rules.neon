@@ -1,2 +1,3 @@
 rules:
 	- Sfp\PHPStan\DontOperationInsideConstructor\Rules\ResourceOperationMethodCallRule
+	- Sfp\PHPStan\DontOperationInsideConstructor\Rules\ResourceOperationFuncCallRule
