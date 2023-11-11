@@ -24,7 +24,7 @@ class ResourceOperationMethodCallRuleTest extends RuleTestCase
         $this->analyse([__DIR__ . '/data/resourceOperationMethodCall.php'], [
             [
                 "Don't resource operation inside constructor. Method SplFileInfo::openfile() is called.",
-                8,
+                10,
             ],
         ]);
     }
