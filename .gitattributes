@@ -1,0 +1,22 @@
+/.github/ export-ignore
+/benchmark/ export-ignore
+/docs/ export-ignore
+/test/ export-ignore
+/.editorconfig
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/.laminas-ci.json export-ignore
+/.laminas-ci export-ignore
+/composer-require-checker.json export-ignore
+/phpbench.json export-ignore
+/phpcs.xml export-ignore
+/phpunit.xml.dist export-ignore
+/psalm.xml export-ignore
+/psalm5.xml export-ignore
+/psalm-baseline.xml
+/mkdocs.yml export-ignore
+
+/example/ export-ignore
+/vendor-bin/ export-ignore
+
+/phpstan.neon export-ignore
